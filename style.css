@@ -1,16 +1,16 @@
 :root {
-    --bg: #000000;
+    --bg: #171a20;
     --text: #ffffff;
-    --body: rgba(255, 255, 255, 0.78);
-    --muted: rgba(255, 255, 255, 0.48);
-    --faint: rgba(255, 255, 255, 0.28);
-    --rule: rgba(255, 255, 255, 0.12);
+    --body: #d0d1d2;
+    --muted: #8e8e8e;
+    --faint: #5c5e62;
+    --rule: #393c41;
     --red: #e82127;
     --font: "Helvetica Neue", Helvetica, Arial, sans-serif;
     --measure: 36rem;
     --page: 1120px;
     --gutter: clamp(24px, 6vw, 80px);
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
     color-scheme: dark;
 }
 
@@ -50,13 +50,13 @@ body {
     padding: var(--gutter);
     text-align: center;
     opacity: 0;
-    animation: fadeInUp 900ms var(--ease) forwards;
+    animation: fadeInUp 450ms var(--ease) forwards;
 }
 
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(16px);
+        transform: translateY(12px);
     }
     to {
         opacity: 1;
@@ -79,7 +79,7 @@ body {
     background: var(--red);
     margin-bottom: 24px;
     transform: scaleX(0);
-    animation: barGrow 900ms var(--ease) 200ms forwards;
+    animation: barGrow 450ms var(--ease) 150ms forwards;
 }
 
 @keyframes barGrow {
@@ -117,8 +117,8 @@ body {
     padding: 18vh 0;
     border-top: 1px solid var(--rule);
     opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+    transform: translateY(12px);
+    transition: opacity 450ms var(--ease), transform 450ms var(--ease);
 }
 
 .chapter.visible {
@@ -129,7 +129,7 @@ body {
 .chapter time {
     display: block;
     font-size: clamp(3.25rem, 9vw, 8rem);
-    font-weight: 300;
+    font-weight: 500;
     letter-spacing: -0.04em;
     line-height: 0.9;
     color: var(--text);
@@ -184,7 +184,7 @@ body {
     .year-rail a {
         color: var(--faint);
         text-decoration: none;
-        transition: color 300ms var(--ease);
+        transition: color 330ms var(--ease);
     }
     
     .year-rail a:hover,

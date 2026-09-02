@@ -2,33 +2,37 @@
 
 Design by Iris. Implement exactly as specified.
 
-## Design Tokens
+## Design Tokens (Updated)
 
 ```css
---bg: #000000
+--bg: #171a20
 --text: #ffffff
---body: rgba(255,255,255,0.78)
---muted: rgba(255,255,255,0.48)
---faint: rgba(255,255,255,0.28)
---rule: rgba(255,255,255,0.12)
+--body: #d0d1d2
+--muted: #8e8e8e
+--faint: #5c5e62
+--rule: #393c41
 --red: #e82127
 --font: "Helvetica Neue", Helvetica, Arial, sans-serif
 --measure: 36rem
 --page: 1120px
 --gutter: clamp(24px, 6vw, 80px)
---ease: cubic-bezier(0.22, 1, 0.36, 1)
+--ease: cubic-bezier(0.25, 0.1, 0.25, 1)
 ```
 
 - `color-scheme: dark`
-- `theme-color: #000`
+- `theme-color: #171a20`
+- **Use TDS near-black (#171a20), never pure black (#000)**
+- **Never Electric Blue #3e6ae1**
 - No Inter / Roboto / Poppins / Outfit / Space Grotesk
 - No webfonts
+- Do not hotlink Tesla Universal Sans from digitalassets.tesla.com
+- Font weights: **400 and 500 only** (no 300, no 700)
 
 ## Typography
 
 ### Hero Wordmark
 - Size: `clamp(4.5rem, 14vw, 11rem)`
-- Weight: 500
+- Weight: **500** (not 700)
 - Tracking: -0.045em
 - Line height: 0.85
 - Color: white
@@ -49,7 +53,7 @@ Design by Iris. Implement exactly as specified.
 
 ### Year
 - Size: `clamp(3.25rem, 9vw, 8rem)`
-- Weight: 300
+- Weight: **500** (not 300)
 - Tracking: -0.04em
 - Line height: 0.9
 - Color: white
@@ -66,7 +70,7 @@ Design by Iris. Implement exactly as specified.
 ### Body Copy
 - Size: 17px
 - Line height: 1.55
-- Color: --body
+- Color: --body (#d0d1d2)
 - Max-width: 36rem
 
 ### Disclaimer
@@ -149,7 +153,7 @@ Desktop ≥1080px only:
 Do not block ship on this feature.
 
 ### 5. Footer
-- Same black background
+- Same background (--bg)
 - Top hairline: --rule
 - Padding: `12vh gutter 8vh`
 - Full disclaimer verbatim
@@ -160,17 +164,20 @@ Do not block ship on this feature.
 Tesla-slow. No bounce, no parallax, no scroll-jacking.
 
 ### Hero
-- Fade + translateY 16px
-- Duration: 900ms
-- Easing: --ease
-- Red bar: scaleX(0→1) from center
+- Fade + translateY **12px** (not 16px or 28px)
+- Duration: **450ms** (not 900ms)
+- Easing: --ease (cubic-bezier(0.25, 0.1, 0.25, 1))
+- Red bar: scaleX(0→1) from center, 450ms, delay 150ms
 
 ### Chapters
 - Optional Intersection Observer
-- Fade-up: 28px
-- Duration: 700ms
+- Fade-up: **12px** (not 28px)
+- Duration: **450ms** (not 700ms)
 - Trigger once
 - Threshold: 0.18
+
+### Rail & Hover
+- Transition: **330ms** --ease
 
 ### Reduced Motion
 - `prefers-reduced-motion`: opacity transitions only
@@ -179,7 +186,7 @@ Tesla-slow. No bounce, no parallax, no scroll-jacking.
 ## Accessibility
 
 - Focus visible: 1px white, offset 4px
-- Body contrast: ≥0.78
+- Body contrast: --body (#d0d1d2) meets WCAG requirements
 - Navigation: `aria-label="Timeline"` if rail ships
 
 ## What to Cut
@@ -187,7 +194,7 @@ Tesla-slow. No bounce, no parallax, no scroll-jacking.
 - Gradients
 - Card container
 - Shadow
-- Timeline dots/rail
+- Timeline dots/rail (except optional year rail)
 - Combined year-dash-title h2s
 - Footer gray background
 - Body padding on container
@@ -200,16 +207,21 @@ Tesla-slow. No bounce, no parallax, no scroll-jacking.
 - Fake Tesla navigation
 - T-logo
 - Order CTA
-- Webfonts
+- Webfonts (including Tesla Universal Sans)
 - Emoji
 - Icon fonts
 - GSAP/Locomotive
+- Pure black #000
+- Electric Blue #3e6ae1
 
 ## Success Criteria
 
 Live https://sbezner.github.io/Tesla/ should:
-- Have no purple
+- Have TDS near-black background (#171a20, not #000)
+- Have no purple or Electric Blue
 - Have type with proper scale
+- Use weights 400/500 only (no 300, no 700)
+- Have motion at 450ms / 12px
 - Keep disclaimer intact verbatim
 - Feel like a Tesla product page that happens to be history
 - Not be a tesla.com clone
