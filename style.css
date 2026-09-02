@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+main {
+    padding: 40px 20px;
+}
+
+.timeline {
+    position: relative;
+}
+
+.event {
+    margin-bottom: 40px;
+    padding-left: 30px;
+    border-left: 3px solid #667eea;
+    position: relative;
+}
+
+.event::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 5px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #667eea;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px #667eea;
+}
+
+.event h2 {
+    color: #1e3c72;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.event p {
+    color: #555;
+    font-size: 1em;
+    line-height: 1.7;
+}
+
+footer {
+    background: #f5f5f5;
+    padding: 30px 20px;
+    border-top: 1px solid #ddd;
+    font-size: 0.9em;
+    color: #666;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
+
+footer strong {
+    color: #333;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.85em;
+    margin-top: 20px;
+    opacity: 0.7;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 30px 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    main {
+        padding: 30px 15px;
+    }
+
+    .event {
+        padding-left: 20px;
+    }
+
+    .event h2 {
+        font-size: 1.3em;
+    }
+
+    footer {
+        padding: 20px 15px;
+    }
+}
