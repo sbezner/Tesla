@@ -272,11 +272,11 @@ html.js .chapter.visible {
 }
 
 #y2015b .chapter-hero {
-    height: 68vh;
+    height: 98vh;
 }
 
 #y2015b .chapter-hero-img {
-    object-position: center 42%;
+    object-position: 50% 15%;
 }
 
 .chapter-hero-overlay {
@@ -384,10 +384,11 @@ html.js .chapter.visible {
 
 .plaque-stage {
     position: relative;
+    left: 50%;
+    margin-left: -50vw;
     width: 100vw;
     max-width: 100vw;
     height: 88svh;
-    margin-left: calc(50% - 50vw);
     overflow: hidden;
 }
 
@@ -399,7 +400,7 @@ html.js .chapter.visible {
 }
 
 .plaque--vehicle:first-child .plaque-stage-img {
-    object-position: 88% 88%;
+    object-position: 70% 75%;
 }
 
 .plaque--vehicle:nth-child(3) .plaque-stage {
