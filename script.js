@@ -16,7 +16,7 @@ function updateNav() {
     // Update active nav link based on current section (viewport midpoint)
     const sections = ['history', 'vehicles', 'energy'];
     const midpoint = window.innerHeight / 2;
-    let currentSection = 'history';
+    let currentSection = null;
     
     for (const section of sections) {
         const element = document.getElementById(section);
@@ -30,14 +30,15 @@ function updateNav() {
     }
     
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === `#${currentSection}`) {
+        const href = link.getAttribute('href');
+        if (currentSection && href === `#${currentSection}`) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
         }
     });
     
-    // Show year rail only in history section
+    // Show year rail only when actually in history section
     if (currentSection === 'history') {
         document.body.classList.add('in-history');
     } else {

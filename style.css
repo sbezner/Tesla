@@ -77,6 +77,16 @@ body {
     gap: 32px;
 }
 
+@media (max-width: 600px) {
+    .nav-links {
+        gap: 16px;
+    }
+    
+    .nav-link {
+        letter-spacing: 0.12em;
+    }
+}
+
 .nav-link {
     font-size: 11px;
     font-weight: 400;
@@ -234,8 +244,9 @@ html.js .chapter.visible {
 /* History vehicle chapters with photos */
 .chapter-hero {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 42vh;
+    margin-left: calc(-1 * var(--gutter));
     margin-bottom: 8vh;
     overflow: hidden;
 }
@@ -253,6 +264,10 @@ html.js .chapter.visible {
     object-position: center;
 }
 
+#y2015b .chapter-hero-img {
+    object-position: center 20%;
+}
+
 .chapter-hero-overlay {
     position: absolute;
     top: 0;
@@ -261,10 +276,6 @@ html.js .chapter.visible {
     bottom: 0;
     background: linear-gradient(to top, rgba(23,26,32,0.92) 0%, rgba(23,26,32,0.5) 40%, rgba(23,26,32,0.12) 68%, transparent);
     pointer-events: none;
-}
-
-.chapter--vehicle {
-    display: block;
 }
 
 @media (min-width: 900px) {
@@ -276,18 +287,19 @@ html.js .chapter.visible {
     }
     
     .chapter--vehicle {
-        display: block;
+        display: grid;
+        grid-template-columns: 42% 1fr;
+        gap: 48px;
+    }
+    
+    .chapter--vehicle .chapter-hero {
+        grid-column: 1 / -1;
     }
     
     .chapter time {
         text-align: right;
         margin-bottom: 0;
         padding-top: 0.2em;
-    }
-    
-    .chapter--vehicle time {
-        text-align: left;
-        margin-bottom: 24px;
     }
 }
 
@@ -361,8 +373,9 @@ html.js .chapter.visible {
 
 .plaque-stage {
     position: relative;
-    width: 100%;
+    width: 100vw;
     height: 88svh;
+    margin-left: calc((100vw - 100%) / -2);
     overflow: hidden;
 }
 
@@ -379,7 +392,7 @@ html.js .chapter.visible {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top, rgba(23,26,32,0.92) 0%, rgba(23,26,32,0.5) 40%, rgba(23,26,32,0.12) 68%, transparent);
+    background: linear-gradient(to top, rgba(23,26,32,0.96) 0%, rgba(23,26,32,0.78) 38%, rgba(23,26,32,0.2) 62%, transparent);
     pointer-events: none;
 }
 
