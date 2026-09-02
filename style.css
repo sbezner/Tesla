@@ -399,7 +399,7 @@ html.js .chapter.visible {
 }
 
 .plaque--vehicle:first-child .plaque-stage-img {
-    object-position: 70% 75%;
+    object-position: 80% 80%;
 }
 
 .plaque--vehicle:nth-child(3) .plaque-stage {
