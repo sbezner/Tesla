@@ -399,15 +399,15 @@ html.js .chapter.visible {
 }
 
 .plaque--vehicle:first-child .plaque-stage-img {
-    object-position: 80% 80%;
+    object-position: 88% 88%;
 }
 
 .plaque--vehicle:nth-child(3) .plaque-stage {
-    height: 68vh;
+    height: 98vh;
 }
 
 .plaque--vehicle:nth-child(3) .plaque-stage-img {
-    object-position: center 42%;
+    object-position: 50% 15%;
 }
 
 .plaque-stage-overlay {
