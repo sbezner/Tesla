@@ -66,6 +66,12 @@ body {
     color: var(--muted);
 }
 
+@media (max-width: 480px) {
+    .nav-unofficial {
+        display: none;
+    }
+}
+
 .nav-links {
     display: flex;
     gap: 32px;
@@ -225,6 +231,42 @@ html.js .chapter.visible {
     max-width: var(--measure);
 }
 
+/* History vehicle chapters with photos */
+.chapter-hero {
+    position: relative;
+    width: 100%;
+    height: 42vh;
+    margin-bottom: 8vh;
+    overflow: hidden;
+}
+
+@media (min-width: 600px) {
+    .chapter-hero {
+        height: 52vh;
+    }
+}
+
+.chapter-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.chapter-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(23,26,32,0.92) 0%, rgba(23,26,32,0.5) 40%, rgba(23,26,32,0.12) 68%, transparent);
+    pointer-events: none;
+}
+
+.chapter--vehicle {
+    display: block;
+}
+
 @media (min-width: 900px) {
     .chapter {
         display: grid;
@@ -233,10 +275,19 @@ html.js .chapter.visible {
         align-items: start;
     }
     
+    .chapter--vehicle {
+        display: block;
+    }
+    
     .chapter time {
         text-align: right;
         margin-bottom: 0;
         padding-top: 0.2em;
+    }
+    
+    .chapter--vehicle time {
+        text-align: left;
+        margin-bottom: 24px;
     }
 }
 
@@ -301,6 +352,48 @@ html.js .chapter.visible {
 
 #vehicles .plaque:first-child {
     border-top: none;
+}
+
+#vehicles .plaque--vehicle {
+    padding: 0;
+    min-height: 88svh;
+}
+
+.plaque-stage {
+    position: relative;
+    width: 100%;
+    height: 88svh;
+    overflow: hidden;
+}
+
+.plaque-stage-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.plaque-stage-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(23,26,32,0.92) 0%, rgba(23,26,32,0.5) 40%, rgba(23,26,32,0.12) 68%, transparent);
+    pointer-events: none;
+}
+
+.plaque-stage-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 var(--gutter) 12vh;
+    text-align: center;
 }
 
 html.js #vehicles .plaque {
@@ -405,6 +498,14 @@ html.js #energy .plaque.visible {
     color: var(--muted);
     max-width: var(--measure);
     margin-bottom: 32px;
+}
+
+.site-footer .photo-credits {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--faint);
+    max-width: var(--measure);
+    margin-bottom: 24px;
 }
 
 .site-footer .copyright {

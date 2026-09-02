@@ -13,15 +13,16 @@ function updateNav() {
         mainNav.classList.remove('scrolled');
     }
     
-    // Update active nav link based on current section
+    // Update active nav link based on current section (viewport midpoint)
     const sections = ['history', 'vehicles', 'energy'];
+    const midpoint = window.innerHeight / 2;
     let currentSection = 'history';
     
     for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
             const rect = element.getBoundingClientRect();
-            if (rect.top <= 200 && rect.bottom >= 200) {
+            if (rect.top <= midpoint && rect.bottom >= midpoint) {
                 currentSection = section;
                 break;
             }
