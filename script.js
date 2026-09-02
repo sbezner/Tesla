@@ -113,18 +113,3 @@ if (yearLinks.length > 0) {
         activeObserver.observe(chapter);
     });
 }
-
-// Force plaque-stage flush left (no right gutter)
-function fixPlaqueStagePosition() {
-    const plaqueStages = document.querySelectorAll('.plaque-stage');
-    plaqueStages.forEach(stage => {
-        const rect = stage.getBoundingClientRect();
-        if (rect.left !== 0) {
-            const offset = -rect.left;
-            stage.style.marginLeft = `calc(50% - 50vw + ${offset}px)`;
-        }
-    });
-}
-
-window.addEventListener('load', fixPlaqueStagePosition);
-window.addEventListener('resize', fixPlaqueStagePosition);
