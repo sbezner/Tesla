@@ -22,6 +22,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -32,6 +33,7 @@ body {
     font-size: 17px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
 }
 
 *:focus-visible {
@@ -245,8 +247,9 @@ html.js .chapter.visible {
 .chapter-hero {
     position: relative;
     width: 100vw;
+    max-width: 100vw;
     height: 42vh;
-    margin-left: calc(-1 * var(--gutter));
+    margin-left: calc(50% - 50vw);
     margin-bottom: 8vh;
     overflow: hidden;
 }
@@ -264,8 +267,16 @@ html.js .chapter.visible {
     object-position: center;
 }
 
+#y2008 .chapter-hero-img {
+    object-position: 70% 75%;
+}
+
+#y2015b .chapter-hero {
+    height: 68vh;
+}
+
 #y2015b .chapter-hero-img {
-    object-position: center 20%;
+    object-position: center 42%;
 }
 
 .chapter-hero-overlay {
@@ -374,8 +385,9 @@ html.js .chapter.visible {
 .plaque-stage {
     position: relative;
     width: 100vw;
+    max-width: 100vw;
     height: 88svh;
-    margin-left: calc((100vw - 100%) / -2);
+    margin-left: calc(50% - 50vw);
     overflow: hidden;
 }
 
@@ -384,6 +396,18 @@ html.js .chapter.visible {
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+.plaque--vehicle:first-child .plaque-stage-img {
+    object-position: 70% 75%;
+}
+
+.plaque--vehicle:nth-child(3) .plaque-stage {
+    height: 68vh;
+}
+
+.plaque--vehicle:nth-child(3) .plaque-stage-img {
+    object-position: center 42%;
 }
 
 .plaque-stage-overlay {
