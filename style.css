@@ -34,10 +34,56 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Focus styles */
 *:focus-visible {
     outline: 1px solid var(--text);
     outline-offset: 4px;
+}
+
+/* Fixed top nav */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--gutter);
+    z-index: 100;
+    transition: background 450ms var(--ease);
+}
+
+.main-nav.scrolled {
+    background: var(--bg);
+}
+
+.nav-unofficial {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-link {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 450ms var(--ease);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text);
 }
 
 /* Hero */
@@ -49,19 +95,6 @@ body {
     justify-content: center;
     padding: var(--gutter);
     text-align: center;
-    opacity: 0;
-    animation: fadeInUp 450ms var(--ease) forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(12px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .hero-wordmark {
@@ -97,7 +130,27 @@ body {
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--muted);
-    margin-bottom: 16px;
+    margin-bottom: 24px;
+}
+
+.hero-links {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.hero-links a {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--faint);
+    text-decoration: none;
+    transition: color 450ms var(--ease);
+}
+
+.hero-links a:hover {
+    color: var(--text);
 }
 
 .hero-legal {
@@ -105,7 +158,23 @@ body {
     color: var(--faint);
 }
 
-/* Chapters */
+/* Section labels */
+.section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    padding-top: 8vh;
+    margin-bottom: 0;
+}
+
+/* History section */
+#history {
+    border-top: 1px solid var(--rule);
+}
+
 .chapters {
     max-width: var(--page);
     margin: 0 auto;
@@ -113,15 +182,21 @@ body {
 }
 
 .chapter {
-    min-height: 72vh;
-    padding: 18vh 0;
+    padding: 12vh 0;
     border-top: 1px solid var(--rule);
+}
+
+.chapter:first-child {
+    border-top: none;
+}
+
+html.js .chapter {
     opacity: 0;
     transform: translateY(12px);
     transition: opacity 450ms var(--ease), transform 450ms var(--ease);
 }
 
-.chapter.visible {
+html.js .chapter.visible {
     opacity: 1;
     transform: translateY(0);
 }
@@ -150,7 +225,6 @@ body {
     max-width: var(--measure);
 }
 
-/* Desktop two-column layout */
 @media (min-width: 900px) {
     .chapter {
         display: grid;
@@ -166,37 +240,155 @@ body {
     }
 }
 
-/* Year rail (optional) */
-@media (min-width: 1080px) {
-    .year-rail {
-        position: fixed;
-        right: 28px;
-        top: 50%;
-        transform: translateY(-50%);
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        font-size: 10px;
-        letter-spacing: 0.1em;
-        z-index: 10;
-    }
-    
-    .year-rail a {
-        color: var(--faint);
-        text-decoration: none;
-        transition: color 330ms var(--ease);
-    }
-    
-    .year-rail a:hover,
-    .year-rail a.active {
-        color: var(--red);
+@media (max-width: 600px) {
+    .chapter {
+        padding: 10vh 0;
     }
 }
 
-@media (max-width: 1079px) {
-    .year-rail {
-        display: none;
+/* Year rail - History section only */
+@media (min-width: 1080px) {
+    body.in-history .year-rail {
+        display: flex;
     }
+}
+
+.year-rail {
+    display: none;
+    position: fixed;
+    right: 28px;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+    gap: 16px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    z-index: 10;
+}
+
+.year-rail a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 330ms var(--ease);
+}
+
+.year-rail a:hover,
+.year-rail a.active {
+    color: var(--red);
+}
+
+/* Vehicles section */
+#vehicles {
+    border-top: 1px solid var(--rule);
+}
+
+.plaques {
+    max-width: var(--page);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+}
+
+#vehicles .plaque {
+    min-height: 88svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12vh 0;
+    border-top: 1px solid var(--rule);
+}
+
+#vehicles .plaque:first-child {
+    border-top: none;
+}
+
+html.js #vehicles .plaque {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 450ms var(--ease), transform 450ms var(--ease);
+}
+
+html.js #vehicles .plaque.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.plaque-kicker {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+}
+
+.plaque-name {
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    color: var(--text);
+    margin-bottom: 32px;
+}
+
+.plaque-body {
+    color: var(--body);
+    max-width: var(--measure);
+}
+
+/* Energy section */
+#energy {
+    border-top: 1px solid var(--rule);
+}
+
+.energy-lead {
+    max-width: var(--page);
+    margin: 0 auto;
+    padding: 8vh var(--gutter);
+}
+
+.energy-lead p {
+    color: var(--body);
+    max-width: var(--measure);
+}
+
+#energy .plaque {
+    min-height: 70svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12vh 0;
+    border-top: 1px solid var(--rule);
+}
+
+#energy .plaque:first-child {
+    border-top: 1px solid var(--rule);
+}
+
+html.js #energy .plaque {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 450ms var(--ease), transform 450ms var(--ease);
+}
+
+html.js #energy .plaque.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#energy .plaque-name {
+    margin-bottom: 16px;
+}
+
+#energy .plaque-kicker {
+    margin-bottom: 32px;
+}
+
+#energy .plaque:last-child .plaque-kicker {
+    margin-bottom: 24px;
 }
 
 /* Footer */
@@ -235,35 +427,16 @@ body {
         transition-duration: 0.01ms !important;
     }
     
-    .hero {
-        opacity: 1;
-        animation: none;
-    }
-    
     .hero-bar {
         transform: scaleX(1);
         animation: none;
     }
     
-    .chapter {
+    html.js .chapter,
+    html.js #vehicles .plaque,
+    html.js #energy .plaque {
         opacity: 1;
         transform: translateY(0);
         transition: none;
-    }
-}
-
-/* Mobile adjustments */
-@media (max-width: 600px) {
-    body {
-        font-size: 16px;
-    }
-    
-    .chapter {
-        min-height: 60vh;
-        padding: 12vh 0;
-    }
-    
-    .chapter time {
-        margin-bottom: 16px;
     }
 }
